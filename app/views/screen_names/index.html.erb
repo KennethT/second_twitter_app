@@ -1,0 +1,19 @@
+<div class="pull-right"><%= link_to 'New Handle to Track', new_screen_name_path(@screen_name), class: 'btn btn-info' %></div>
+
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th><%= ScreenName.last.name %>'s Tweets</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% $twitter.user_timeline(ScreenName.last.name).each do |x| %>
+      <tr>
+        <td><%= x.text %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
